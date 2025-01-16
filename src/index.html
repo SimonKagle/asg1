@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+  </head>
+
+  <body onload="main()">
+
+    <p>
+      Simon Kagle <br>
+      skagle@ucsc.edu <br>
+      Notes to grader: 
+      <ul>
+        <li>Added Undo and Redo</li>
+        <li>Added Restore Last to restore canvas 
+          to before 'Clear canvas' was pressed</li>
+        <li>Added the ability to download the image as a png (lowest button)</li>
+        <li>'Triangle Man' Button draws my picture (required for assignment)</li>
+      </ul>
+    </p>
+    
+    <br>
+
+    <button id="undo">Undo</button>
+    <button id="redo">Redo</button>
+    <button id="restore">Restore Last</button>
+    <br><br>
+
+    <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+    </canvas>
+    <br>
+
+    <button id="clearCanvas">Clear Canvas</button>
+    <br><br>
+
+    Drawing Mode:<br>
+    <button id="squareSel">Squares</button>
+    <button id="triangleSel">Triangles</button>
+    <button id="circleSel">Circles</button>
+    <button id="manSel">Triangle Man</button>
+    <br><br>
+
+    Shape Color:<br>
+    Red <input id="colorR" type="range" min="0" max="1" step="0.01"/> 
+    Green <input id="colorG" type="range" min="0" max="1" step="0.01"/> 
+    Blue <input id="colorB" type="range" min="0" max="1" step="0.01"/> 
+    <br><br>
+
+    Shape Size: <input id="sizeSlider" type="range" min="0" max="100" value="5"/>
+    (Circles) Segment Count: <input id="segSlider" type="range" min="3" max="100" value="50"/>
+    <br><br>
+
+    <button id="saveImg">Download Image</button>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="Shapes.js"></script>
+    <script src="ColoredPoints.js"></script>
+  </body>
+</html>
