@@ -54,21 +54,28 @@ function TriangleMan(gl){
   const YELLOW = [1, 1, 0, 1];
   const BLACK = [0, 0, 0, 1];
   const GREEN = [0, 1, 0, 1];
-  const TORSO = [1, .3, 0, 1];
-  const SLEEVE_TOP = [1, .3, 0, 1];
+  const TORSO = [205/255, 95/255, 0, 1]; // #cd5f00
+  const SLEEVE_TOP = TORSO;
   const SLEEVE_BOT = [0, 0, 0, 1];
   
   // BG
   g_shapeList.push(new Polygon(RED, [-1, 1, -1, -5, 5, 1], gl.TRIANGLES));
   g_shapeList.push(new Polygon(YELLOW, [-1, 1, .4, 1, -1, -2.5], gl.TRIANGLES));
-  
+  g_shapeList.push(new Polygon(RED, [-1, 1, .0, 1, -1.4, -2.5], gl.TRIANGLES));
+  g_shapeList.push(new Polygon(YELLOW, [-1, 1, -.4, 1, -1.8, -2.5], gl.TRIANGLES));
+  g_shapeList.push(new Polygon(YELLOW, [1, 1.5, 1, -1, .1, -1], gl.TRIANGLES));
+  g_shapeList.push(new Polygon(RED, [1, .5, 1, -1, .5, -1], gl.TRIANGLES));
+  g_shapeList.push(new Polygon(RED, [-1, 1, -.8, 1, -1, .5], gl.TRIANGLES));
+
+
   // Head
   g_shapeList.push(new Polygon(BLACK, [-.2, .5, -.3, 0, .2, .5], gl.TRIANGLES));
   g_shapeList.push(new Polygon(BLACK, [-.3, 0, .3, 0, .2, .5], gl.TRIANGLES));
   
   // Eye
   g_shapeList.push(new Polygon(RED, [0, .3, .1, .2, .2, .3], gl.TRIANGLES));
-  
+  g_shapeList.push(new Polygon([1, .5, .5, 1], [.05, .3, .1, .25, .15, .3], gl.TRIANGLES));
+
   // Mohawk
   g_shapeList.push(new Polygon(GREEN, [-.1, .5, .1, .5, 0, .8], gl.TRIANGLES));
   
