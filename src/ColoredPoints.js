@@ -13,7 +13,7 @@ var VSHADER_SOURCE =
 // Fragment shader program
 var FSHADER_SOURCE =
   'precision mediump float;\n' +
-  'uniform vec4 u_FragColor;\n' +  // uniform変数
+  'uniform vec4 u_FragColor;\n' + 
   'void main() {\n' +
   '  gl_FragColor = u_FragColor;\n' +
   '}\n';
@@ -39,9 +39,9 @@ var brushInfo = {
    */
   shape: 0,
   size: 5,
-  r: 1,
-  g: 1,
-  b: 1,
+  r: .5,
+  g: .5,
+  b: .5,
   segments: 50,
 };
 
@@ -155,8 +155,6 @@ function connectVariablesToGLSL(gl, attrs, unifs){
   return out;
 }
 
-var isMouseDown = false;
-
 /** @type {HTMLButtonElement} */
 var undoButton = document.getElementById("undo");
 /** @type {HTMLButtonElement} */
@@ -190,17 +188,11 @@ function main() {
   gl.clear(gl.COLOR_BUFFER_BIT);
   
   // Register function (event handler) to be called on a mouse press
-  document.onmousedown = function(ev){
-    isMouseDown = true;
-  }
   canvas.onmousedown = function(ev){
     handleClicks(ev, gl, canvas, a_Position, u_FragColor);
   }
   canvas.onmousemove = function(ev){
-    if (isMouseDown) handleClicks(ev, gl, canvas, a_Position, u_FragColor);
-  }
-  document.onmouseup = function(ev){
-    isMouseDown = false;
+    if (ev.buttons == 1) handleClicks(ev, gl, canvas, a_Position, u_FragColor);
   }
 
   // Other event handlers
